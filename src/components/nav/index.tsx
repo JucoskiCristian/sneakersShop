@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import {
   Dialog,
+  DialogBackdrop,
   DialogPanel,
   Disclosure,
   DisclosureButton,
@@ -11,12 +12,16 @@ import {
 } from '@headlessui/react'
 import {
   ChevronDown,
+  Search,
   ShoppingBag,
   SquareMenu,
   SquareX,
-  User,
 } from 'lucide-react'
 import { PopoverMenu } from './popovermenu'
+
+import logo from '../../assets/image.png'
+import { MobileMenuitem } from './mobilemenuitem'
+import { ShoppingBagMenu } from './shoppingbagmenu'
 
 const nike = [
   {
@@ -110,6 +115,11 @@ const allstar = [
 ]
 export function Nav() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [cartMenuOpen, setCartMenuOpen] = useState(false)
+
+  function closeCartMenu() {
+    setCartMenuOpen(false)
+  }
 
   return (
     <header className="bg-white">
@@ -119,12 +129,7 @@ export function Nav() {
       >
         <div className="flex lg:flex-1">
           <a href="#" className="-m-1.5 p-1.5">
-            <span className="sr-only">Your Company</span>
-            <img
-              alt=""
-              src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-              className="h-8 w-auto"
-            />
+            <img alt="" src={logo} className="h-20 w-auto bg-cover" />
           </a>
         </div>
         <div className="flex lg:hidden">
@@ -133,7 +138,6 @@ export function Nav() {
             onClick={() => setMobileMenuOpen(true)}
             className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
           >
-            <span className="sr-only">Open main menu</span>
             <SquareMenu aria-hidden="true" className="h-6 w-6" />
           </button>
         </div>
@@ -143,13 +147,17 @@ export function Nav() {
           <PopoverMenu name="Puma" data={puma} />
           <PopoverMenu name="All Star" data={allstar} />
         </PopoverGroup>
-        <div className="hidden gap-3 lg:flex lg:flex-1 lg:justify-end">
+        <div className="hidden gap-6 lg:flex lg:flex-1 lg:justify-end">
           <a href="#">
-            <User />
+            <Search />
           </a>
-          <a href="#">
+          <button
+            type="button"
+            className=""
+            onClick={() => setCartMenuOpen(true)}
+          >
             <ShoppingBag />
-          </a>
+          </button>
         </div>
       </nav>
       <Dialog
@@ -161,68 +169,37 @@ export function Nav() {
         <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-11 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
             <a href="#" className="-m-1.5 p-1.5">
-              <span className="sr-only">Your Company</span>
-              <img
-                alt=""
-                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                className="h-8 w-auto"
-              />
+              <img alt="" src={logo} className="h-20 w-auto" />
             </a>
             <button
               type="button"
               onClick={() => setMobileMenuOpen(false)}
               className="-m-2.5 rounded-md p-2.5 text-gray-700"
             >
-              <span className="sr-only">Close menu</span>
-              <SquareX aria-hidden="true" className="h-6 w-6" />
+              <SquareX aria-hidden="true" className="h-6 w-auto" />
             </button>
           </div>
           <div className="mt-6 flow-root">
             <div className="-my-6 divide-y divide-gray-500/10">
-              <div className="space-y-2 py-6">
-                <Disclosure as="div" className="-mx-3">
-                  <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
-                    Product
-                    <ChevronDown
-                      aria-hidden="true"
-                      className="h-5 w-5 flex-none group-data-[open]:rotate-180"
-                    />
-                  </DisclosureButton>
-                  <DisclosurePanel className="mt-2 space-y-2">
-                    {[...nike].map(item => (
-                      <DisclosureButton
-                        key={item.name}
-                        as="a"
-                        href={item.href}
-                        className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                      >
-                        {item.name}
-                      </DisclosureButton>
-                    ))}
-                  </DisclosurePanel>
-                </Disclosure>
-                <a
-                  href="#"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                >
-                  Features
-                </a>
-                <a
-                  href="#"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                >
-                  Marketplace
-                </a>
-                <a
-                  href="#"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                >
-                  Company
-                </a>
-              </div>
+              <MobileMenuitem name="Nike" data={nike} />
+              <MobileMenuitem name="Adida" data={adidas} />
+              <MobileMenuitem name="Puma" data={puma} />
+              <MobileMenuitem name="All Star" data={allstar} />
             </div>
           </div>
         </DialogPanel>
+      </Dialog>
+
+      <Dialog
+        open={cartMenuOpen}
+        onClose={setCartMenuOpen}
+        className="relative z-10"
+      >
+        <DialogBackdrop
+          transition
+          className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity duration-500 ease-in-out data-[closed]:opacity-0"
+        />
+        <ShoppingBagMenu setMenuClose={closeCartMenu} />
       </Dialog>
     </header>
   )
