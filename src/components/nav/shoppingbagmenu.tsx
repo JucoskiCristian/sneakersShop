@@ -6,27 +6,23 @@ import { SquareX } from 'lucide-react'
 const products = [
   {
     id: 1,
-    name: 'Throwback Hip Bag',
+    name: 'Jordan 1 Mid SE',
     href: '#',
-    color: 'Salmon',
-    price: '$90.00',
+    color: 'Red',
+    price: '$100.00',
     quantity: 1,
-    imageSrc:
-      'https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg',
-    imageAlt:
-      'Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt.',
+    imageSrc: 'src/images/airjordan.png',
+    imageAlt: 'Air jordan Red',
   },
   {
     id: 2,
-    name: 'Medium Stuff Satchel',
+    name: 'Superstar',
     href: '#',
-    color: 'Blue',
-    price: '$32.00',
+    color: 'Cloud White',
+    price: '$96.00',
     quantity: 1,
-    imageSrc:
-      'https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg',
-    imageAlt:
-      'Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch.',
+    imageSrc: 'src/images/superstar.png',
+    imageAlt: 'Adidas SuperStar',
   },
   // More products...
 ]
@@ -53,7 +49,7 @@ export function ShoppingBagMenu({ setMenuClose }: ShoppingBagMenuProps) {
                     <button
                       type="button"
                       onClick={() => setMenuClose()}
-                      className="relative -m-2 p-2 text-gray-400 hover:text-gray-500"
+                      className="relative -m-2 p-2 text-gray-700 hover:text-gray-500"
                     >
                       <span className="absolute -inset-0.5" />
                       <SquareX aria-hidden="true" className="h-6 w-6" />
@@ -111,7 +107,7 @@ export function ShoppingBagMenu({ setMenuClose }: ShoppingBagMenuProps) {
               <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
                 <div className="flex justify-between text-base font-medium text-gray-900">
                   <p>Subtotal</p>
-                  <p>$262.00</p>
+                  <p>$196.00</p>
                 </div>
                 <p className="mt-0.5 text-sm text-gray-500">
                   Shipping and taxes calculated at checkout.

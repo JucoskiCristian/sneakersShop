@@ -5,18 +5,9 @@ import {
   Dialog,
   DialogBackdrop,
   DialogPanel,
-  Disclosure,
-  DisclosureButton,
-  DisclosurePanel,
   PopoverGroup,
 } from '@headlessui/react'
-import {
-  ChevronDown,
-  Search,
-  ShoppingBag,
-  SquareMenu,
-  SquareX,
-} from 'lucide-react'
+import { Search, ShoppingBag, SquareMenu, SquareX } from 'lucide-react'
 import { PopoverMenu } from './popovermenu'
 
 import logo from '../../assets/image.png'
@@ -166,7 +157,10 @@ export function Nav() {
         className="lg:hidden"
       >
         <div className="fixed inset-0 z-10" />
-        <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-11 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+        <DialogPanel
+          transition
+          className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-11 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 transform transition duration-500 ease-in-out data-[closed]:translate-x-full"
+        >
           <div className="flex items-center justify-between">
             <a href="#" className="-m-1.5 p-1.5">
               <img alt="" src={logo} className="h-20 w-auto" />
