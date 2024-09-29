@@ -139,14 +139,21 @@ export function Nav() {
           <PopoverMenu name="All Star" data={allstar} />
         </PopoverGroup>
         <div className="hidden gap-6 lg:flex lg:flex-1 lg:justify-end">
-          <a href="#">
+          <a href="#" className="flex items-center">
             <Search />
           </a>
           <button
             type="button"
-            className=""
+            className="relative flex justify-center items-center rounded-full h-8 w-8"
             onClick={() => setCartMenuOpen(true)}
           >
+            <span className="flex absolute top-0 end-0 -mt-2 -me-2">
+              <span className="animate-ping absolute inline-flex size-full rounded-full bg-red-400 opacity-75 dark:bg-red-600" />
+              <span className="relative inline-flex text-xs bg-red-500 text-white rounded-full py-0.5 px-1.5">
+                2
+              </span>
+            </span>
+
             <ShoppingBag />
           </button>
         </div>
