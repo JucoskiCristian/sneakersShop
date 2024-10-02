@@ -10,7 +10,7 @@ import {
 import { Search, ShoppingBag, SquareMenu, SquareX } from 'lucide-react'
 import { PopoverMenu } from './popovermenu'
 
-import logo from '../../assets/image.png'
+import logo from '../../assets/logo.png'
 import { MobileMenuitem } from './mobilemenuitem'
 import { ShoppingBagMenu } from './shoppingbagmenu'
 
