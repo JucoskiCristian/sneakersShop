@@ -8,7 +8,7 @@ export function LinkItem({ link, label }: LinkProps) {
     <li>
       <a
         href={link}
-        className="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6"
+        className="inline-block text-base leading-loose hover:text-violet-900"
       >
         {label}
       </a>
