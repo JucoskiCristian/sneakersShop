@@ -12,7 +12,7 @@ import { PopoverMenu } from './popovermenu'
 
 import logo from '../../assets/logo.png'
 import { MobileMenuitem } from './mobilemenuitem'
-import { ShoppingBagMenu } from './shoppingbagmenu'
+import { ShoppingBagMenu } from '../shoppingbagmenu'
 
 const nike = [
   {

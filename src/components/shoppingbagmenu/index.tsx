@@ -1,36 +1,34 @@
-'use client'
-
 import { DialogPanel, DialogTitle } from '@headlessui/react'
 import { SquareX } from 'lucide-react'
+import { useState } from 'react'
 
-const products = [
-  {
-    id: 1,
-    name: 'Jordan 1 Mid SE',
-    href: '#',
-    color: 'Red',
-    price: '$100.00',
-    quantity: 1,
-    imageSrc: 'src/images/airjordan.png',
-    imageAlt: 'Air jordan Red',
-  },
-  {
-    id: 2,
-    name: 'Superstar',
-    href: '#',
-    color: 'Cloud White',
-    price: '$96.00',
-    quantity: 1,
-    imageSrc: 'src/images/superstar.png',
-    imageAlt: 'Adidas SuperStar',
-  },
-  // More products...
-]
 interface ShoppingBagMenuProps {
   setMenuClose: () => void
 }
-
 export function ShoppingBagMenu({ setMenuClose }: ShoppingBagMenuProps) {
+  const [products, setProducts] = useState([
+    {
+      id: 1,
+      name: 'Jordan 1 Mid SE',
+      href: '#',
+      color: 'golden',
+      price: '$100.00',
+      quantity: 1,
+      imageSrc: 'src/images/airjordan.png',
+      imageAlt: 'Air jordan Red',
+    },
+    {
+      id: 2,
+      name: 'Superstar',
+      href: '#',
+      color: 'Cloud White',
+      price: '$96.00',
+      quantity: 1,
+      imageSrc: 'src/images/superstar.png',
+      imageAlt: 'Adidas SuperStar',
+    },
+  ])
+
   return (
     <div className="fixed inset-0 overflow-hidden">
       <div className="absolute inset-0 overflow-hidden">
@@ -83,7 +81,7 @@ export function ShoppingBagMenu({ setMenuClose }: ShoppingBagMenuProps) {
                               </p>
                             </div>
                             <div className="flex flex-1 items-end justify-between text-sm">
-                              <p className="text-gray-500">
+                              <p className="text-violet-700">
                                 Qty {product.quantity}
                               </p>
 
