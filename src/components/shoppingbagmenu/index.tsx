@@ -1,12 +1,11 @@
 import { DialogPanel, DialogTitle } from '@headlessui/react'
 import { SquareX } from 'lucide-react'
-import { useState } from 'react'
 
 interface ShoppingBagMenuProps {
   setMenuClose: () => void
 }
 export function ShoppingBagMenu({ setMenuClose }: ShoppingBagMenuProps) {
-  const [products, setProducts] = useState([
+  const products = [
     {
       id: 1,
       name: 'Jordan 1 Mid SE',
@@ -27,7 +26,7 @@ export function ShoppingBagMenu({ setMenuClose }: ShoppingBagMenuProps) {
       imageSrc: 'src/images/superstar.png',
       imageAlt: 'Adidas SuperStar',
     },
-  ])
+  ]
 
   return (
     <div className="fixed inset-0 overflow-hidden">
