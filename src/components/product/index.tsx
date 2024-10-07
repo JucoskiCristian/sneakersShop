@@ -14,7 +14,7 @@ const products = [
     href: '#',
     price: '$96',
     color: 'cloud white',
-    imageSrc: 'src/images/superstar.png',
+    imageSrc: './src/images/superstar.png',
     imageAlt: 'Adidas Superstar',
   },
   {
@@ -23,7 +23,7 @@ const products = [
     href: '#',
     price: '$89',
     color: 'White',
-    imageSrc: 'src/images/allstar.png',
+    imageSrc: './src/images/allstar.png',
     imageAlt: 'Chuck Taylor All Star',
   },
   {
@@ -32,7 +32,7 @@ const products = [
     href: '#',
     price: '$70',
     color: 'Blue',
-    imageSrc: 'src/images/suede.png',
+    imageSrc: './src/images/suede.png',
     imageAlt:
       'Hand holding black machined steel mechanical pencil with brass tip and top.',
   },
